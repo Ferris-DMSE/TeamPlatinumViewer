@@ -1,0 +1,1 @@
+c:\users\manleym2\documents\visual studio 2015\Projects\SARViewer\SARViewer\bin\Debug\SARViewer.exe.config
