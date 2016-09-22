@@ -1,0 +1,25 @@
+Project #1: Academic Audit Console Application: Due: 10/04/2016
+
+The interface can select and load one Student Academic Record for display at a time
+The interface will display the Student Academic Record of their attempted courses containing:
+ 
+ StudentID : Unique to each student: #-##-###
+ StudentFirstName : ABCDXYZ (maximum length 30 )
+ StudentLastName : ABCDXYZ (maximum length 30 )
+       CourseID : Unique to each course: ####
+       CourseNumber : XXXX-###
+       CourseName : ABCDXYZ (maximum length 30)
+       Credit: ##
+       Semester: Spring , Summer, Fall, Winter
+       Year: ####
+       CourseType : Core , General Education, Elective
+       Course Grade:   A , B , C , D , F,  I – Incomplete, W - Withdrawn
+ 
+The interface will also display
+ Completed Core Courses
+ Completed General Education Courses
+ Completed Elective Courses
+
+Ø All record Files are editable (No Databases: CSV, XML, JSON, etc.)
+Ø All record Files are human readable
+Ø All record Files are simple to create/edit/delete manually, by data entry personnel in file :  )
