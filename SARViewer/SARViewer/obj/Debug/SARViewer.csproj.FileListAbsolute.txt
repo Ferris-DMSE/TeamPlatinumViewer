@@ -5,3 +5,6 @@ C:\Users\manleym2\Documents\GitHub\TeamPlatinumViewer\SARViewer\SARViewer\bin\De
 C:\Users\manleym2\Documents\GitHub\TeamPlatinumViewer\SARViewer\SARViewer\obj\Debug\SARViewer.csprojResolveAssemblyReference.cache
 C:\Users\manleym2\Documents\GitHub\TeamPlatinumViewer\SARViewer\SARViewer\obj\Debug\SARViewer.exe
 C:\Users\manleym2\Documents\GitHub\TeamPlatinumViewer\SARViewer\SARViewer\obj\Debug\SARViewer.pdb
+C:\Users\USER\Documents\Git\TeamPlatinumViewer\SARViewer\SARViewer\bin\Debug\SARViewer.exe.config
+C:\Users\USER\Documents\Git\TeamPlatinumViewer\SARViewer\SARViewer\obj\Debug\SARViewer.exe
+C:\Users\USER\Documents\Git\TeamPlatinumViewer\SARViewer\SARViewer\obj\Debug\SARViewer.pdb
