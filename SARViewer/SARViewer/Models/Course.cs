@@ -8,27 +8,83 @@ namespace SARViewer.Models
 {
     class Course
     {
-        public int CourseID;            //All the fields each course requires
-        public string CourseNumber;
-        public string CourseName;
-        public int Credit;
-        public string Semester;
-        public int Year;
-        public string CourseType;
-        public string Grade;
-        public bool Completed;
+        #region Fields
+        private int courseID;            //All the fields each course requires
+        private string courseNumber;
+        private string courseName;
+        private int credit;
+        private string semester;
+        private int year;
+        private string courseType;
+        private string grade;
+        private bool completed;
+        #endregion
+
+        #region Properties
+
+        public int CourseID
+        {
+            get { return courseID; }
+            set { courseID = value; }
+        }
+
+        public string CourseNumber
+        {
+            get { return courseNumber; }
+            set { courseNumber = value; }
+        }
+        public string CourseName
+        {
+            get { return courseName; }
+            set { courseName = value; }
+        }
+
+        public int Credit            
+        {
+            get { return credit; }
+            set { credit = value; }
+        }
         
-        public Course(int courseID, int credit, int year, string coursenumber, string coursename, string semester, string coursetype, string grade, bool completed)
-        {                              //Construction of the course object
-            Completed = completed;
-            CourseID = courseID;           
-            CourseNumber = coursenumber;
-            CourseName = coursename;
-            Credit = credit;
-            Semester = semester;
-            Year = year;
-            CourseType = coursetype;
-            Grade = grade;
+        public string Semester
+        {
+            get { return semester; }
+            set { semester = value; }
+        }
+        public int Year
+        {
+            get { return year; }
+            set { year = value; }
+        }
+        public string CourseType
+        {
+            get { return courseType; }
+            set { courseType = value; }
+        }
+        public string Grade
+        {
+            get { return grade; }
+            set { grade = value; }
+        }
+        public bool Completed
+        {
+            get
+            {
+                if (grade != "I" && grade != "W" )
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                } 
+            }
+            set { }
+        }
+        #endregion
+
+
+        public Course() //Empty Constructor 
+        {                                         
             
         }
     }

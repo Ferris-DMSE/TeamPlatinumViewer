@@ -14,3 +14,6 @@ F:\Repositories\TeamPlatinumViewer\SARViewer\SARViewer\obj\Debug\SARViewer.pdb
 C:\Users\Michael\Documents\Git\TeamPlatinumViewer\SARViewer\SARViewer\bin\Debug\SARViewer.exe.config
 C:\Users\Michael\Documents\Git\TeamPlatinumViewer\SARViewer\SARViewer\obj\Debug\SARViewer.exe
 C:\Users\Michael\Documents\Git\TeamPlatinumViewer\SARViewer\SARViewer\obj\Debug\SARViewer.pdb
+C:\Users\jonej134\Documents\GitHub\TeamPlatinumViewer\SARViewer\SARViewer\bin\Debug\SARViewer.exe.config
+C:\Users\jonej134\Documents\GitHub\TeamPlatinumViewer\SARViewer\SARViewer\obj\Debug\SARViewer.exe
+C:\Users\jonej134\Documents\GitHub\TeamPlatinumViewer\SARViewer\SARViewer\obj\Debug\SARViewer.pdb
