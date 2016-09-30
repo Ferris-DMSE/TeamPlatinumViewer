@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace SARViewer.Models
 {
+    [DataContract(Namespace ="")]
     class Course
     {
         #region Fields
-        private int courseID;            //All the fields each course requires
+        private string courseID;            //All the fields each course requires
         private string courseNumber;
         private string courseName;
         private int credit;
@@ -21,50 +23,52 @@ namespace SARViewer.Models
         #endregion
 
         #region Properties
-
-        public int CourseID
+        [DataMember]
+        public string ID
         {
             get { return courseID; }
             set { courseID = value; }
         }
-
-        public string CourseNumber
-        {
-            get { return courseNumber; }
-            set { courseNumber = value; }
-        }
-        public string CourseName
+        [DataMember]
+        public string Name
         {
             get { return courseName; }
             set { courseName = value; }
         }
-
-        public int Credit            
+        [DataMember]
+        public int Credits            
         {
             get { return credit; }
             set { credit = value; }
         }
-        
+        [DataMember]
         public string Semester
         {
             get { return semester; }
             set { semester = value; }
         }
+
+        
         public int Year
         {
             get { return year; }
             set { year = value; }
         }
+
+        [DataMember]
         public string CourseType
         {
             get { return courseType; }
             set { courseType = value; }
         }
+
+        [DataMember]
         public string Grade
         {
             get { return grade; }
             set { grade = value; }
         }
+
         public bool Completed
         {
             get

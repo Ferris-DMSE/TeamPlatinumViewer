@@ -10,7 +10,7 @@ using System.Runtime.Serialization;
 
 namespace SARViewer.Models
 {
-    [Serializable]
+    [DataContract (Namespace ="")]
     class StudentData
     {
         private const string FILEPATH = @"C:\Users\USER\Documents\Git\TeamPlatinumViewer\SARViewer\SARViewer\XMLStudentData\studentData.xml";
@@ -19,7 +19,7 @@ namespace SARViewer.Models
         [DataMember]
         public List<Student> StudentDirectory { get { return studentDirectory; } set { studentDirectory = value; } }
 
-        private List<Student> parseStudents()
+        public List<Student> parseStudents()
         {
             StudentData sd = new StudentData();
             if (!File.Exists(FILEPATH))
@@ -36,6 +36,25 @@ namespace SARViewer.Models
 
 
             return sd.StudentDirectory;
+        }
+    }
+
+    public static class Serialization<T> where T : class
+    {
+
+        public static T DeserializeFromXmlFile(string fileName)
+        {
+            if (!File.Exists(fileName))
+            {
+                return null;
+            }
+
+            DataContractSerializer deserializer = new DataContractSerializer(typeof(T));
+
+            using (Stream stream = File.OpenRead(fileName))
+            {
+                return (T)deserializer.ReadObject(stream);
+            }
         }
     }
 }
