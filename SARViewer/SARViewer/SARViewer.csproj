@@ -68,10 +68,10 @@
     <Content Include="obj\Debug\SARViewer.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\SARViewer.exe" />
     <Content Include="obj\Debug\SARViewer.pdb" />
+    <Content Include="XMLStudentData\studentData.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="XMLStudentData\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
