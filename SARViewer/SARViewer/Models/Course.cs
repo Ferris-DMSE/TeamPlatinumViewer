@@ -12,36 +12,34 @@ namespace SARViewer.Models
     {
         #region Fields
         private string courseID;            //All the fields each course requires
-        private string courseNumber;
         private string courseName;
         private int credit;
         private string semester;
         private int year;
         private string courseType;
         private string grade;
-        private bool completed;
         #endregion
 
         #region Properties
-        [DataMember]
+        [DataMember(Order = 0)]
         public string ID
         {
             get { return courseID; }
             set { courseID = value; }
         }
-        [DataMember]
+        [DataMember(Order =1)]
         public string Name
         {
             get { return courseName; }
             set { courseName = value; }
         }
-        [DataMember]
+        [DataMember(Order = 2)]
         public int Credits            
         {
             get { return credit; }
             set { credit = value; }
         }
-        [DataMember]
+        [DataMember(Order = 3)]
         public string Semester
         {
             get { return semester; }
@@ -55,14 +53,14 @@ namespace SARViewer.Models
             set { year = value; }
         }
 
-        [DataMember]
+        [DataMember(Order = 4)]
         public string CourseType
         {
             get { return courseType; }
             set { courseType = value; }
         }
 
-        [DataMember]
+        [DataMember(Order = 5)]
         public string Grade
         {
             get { return grade; }
