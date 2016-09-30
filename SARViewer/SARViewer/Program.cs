@@ -12,17 +12,17 @@ namespace SARViewer
         static void Main(string[] args)
         {
             StudentData sd = new StudentData();
-            List<Student> stLst;
-            //stLst = sd.parseStudents();
-            int count = 0;
-            StudentData sdd = Serialization<StudentData>.DeserializeFromXmlFile(@"C:\Users\USER\Documents\Git\TeamPlatinumViewer\SARViewer\SARViewer\XMLStudentData\studentData.xml");
-            foreach (Student student in sdd.StudentDirectory)
+            sd = sd.deserializeFromXML();
+            
+            //StudentData sdd = Serialization<StudentData>.DeserializeFromXmlFile(@"C:\Users\USER\Documents\Git\TeamPlatinumViewer\SARViewer\SARViewer\XMLStudentData\studentData.xml");
+            foreach (Student student in sd.StudentDirectory)
             {
-                Console.WriteLine(student.ID);
-                Console.WriteLine(student.FirstName);
-                Console.WriteLine(student.LastName);
                 Console.WriteLine();
+                Console.WriteLine("\t" + student.ID);
+                Console.WriteLine("\t" + student.FirstName);
+                Console.WriteLine("\t" + student.LastName);
                 Console.WriteLine();
+                
 
                 foreach (Course course in student.CoursesRegistered)
                 {
@@ -31,10 +31,11 @@ namespace SARViewer
                     Console.WriteLine(course.Semester);
                     Console.WriteLine(course.CourseType);
                     Console.WriteLine(course.Credits);
+                    Console.WriteLine();
                 }
-                count++;
+               
             }
-            Console.WriteLine(count);
+            Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
     }
