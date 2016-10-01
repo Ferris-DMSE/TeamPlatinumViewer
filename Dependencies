@@ -1,0 +1,7 @@
+The TeamPlatinumViewer is an application to search for and display a single student's academic record from a structured data file containing an arbitrary amount of students and courses.
+
+Our project currently depends on DataContractSerializer to deserialize the xml file that we expect from "the client" in this scenario.
+At that point, we create our object models to match the structure of the XML document and deserialize from there.
+
+Our project currently utilizes the an XML file generated from a secondary project created by iFialAtFail and is hosted on the Ferris-DMSE
+github at the following url: https://github.com/Ferris-DMSE/StudentDataXMLGenerator. 
