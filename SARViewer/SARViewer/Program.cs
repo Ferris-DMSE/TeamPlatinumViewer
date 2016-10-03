@@ -17,30 +17,37 @@ namespace SARViewer
             //StudentData sdd = Serialization<StudentData>.DeserializeFromXmlFile(@"C:\Users\USER\Documents\Git\TeamPlatinumViewer\SARViewer\SARViewer\XMLStudentData\studentData.xml");
             if (sd != null)
             {
-                foreach (Student student in sd.StudentDirectory)
+                Console.WriteLine("Please enter the name of the student to view their SAR.");
+                string userQuery = Console.ReadLine();
+                userQuery = userQuery.ToUpper();
+                var query = from student in sd.StudentDirectory
+                            where student.FirstName == userQuery || student.LastName == userQuery
+                            select student;
+
+                if (query.Count() == 0)
+                    Console.WriteLine("No students by that name.");
+                foreach (Student student in query)
                 {
-                    Console.WriteLine();
-                    Console.WriteLine("\t" + student.ID);
                     Console.WriteLine("\t" + student.FirstName);
                     Console.WriteLine("\t" + student.LastName);
-                    Console.WriteLine();
-
+                    Console.WriteLine("\t" + student.ID);
+                    Console.WriteLine("--------------------------------------");
 
                     foreach (Course course in student.CoursesRegistered)
                     {
                         Console.WriteLine(course.ID);
                         Console.WriteLine(course.Name);
                         Console.WriteLine(course.Semester);
-                        Console.WriteLine(course.CourseType);
+                        Console.WriteLine(course.Grade);
                         Console.WriteLine(course.Credits);
                         Console.WriteLine();
                     }
-
                 }
             }
-            
+
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
+            
         }
     }
 }
