@@ -11,16 +11,16 @@ namespace SARViewer
     {
         static void Main(string[] args)
         {
-            StudentData sd = new StudentData();
-            sd = sd.deserializeFromXML();
+            StudentData data = new StudentData();
+            data = data.deserializeFromXML();
 
-            //StudentData sdd = Serialization<StudentData>.DeserializeFromXmlFile(@"C:\Users\USER\Documents\Git\TeamPlatinumViewer\SARViewer\SARViewer\XMLStudentData\studentData.xml");
-            if (sd != null)
+            
+            if (data != null)
             {
                 Console.WriteLine("Please enter the name of the student to view their SAR.");
                 string userQuery = Console.ReadLine();
                 userQuery = userQuery.ToUpper();
-                var query = from student in sd.StudentDirectory
+                var query = from student in data.StudentDirectory
                             where student.FirstName == userQuery || student.LastName == userQuery
                             select student;
 
