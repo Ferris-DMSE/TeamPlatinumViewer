@@ -21,7 +21,7 @@ namespace SARViewer.Models
 
         public StudentData deserializeFromXML()
         {
-            StudentData sd = new StudentData();
+            StudentData data = new StudentData();
             if (!File.Exists(FILEPATH))
             {
                 return null;
@@ -31,11 +31,11 @@ namespace SARViewer.Models
 
             using (Stream stream = File.OpenRead(FILEPATH))
             {
-                 sd = (StudentData)deserializer.ReadObject(stream);
+                 data = (StudentData)deserializer.ReadObject(stream);
             }
 
 
-            return sd;
+            return data;
         }
     }
 
