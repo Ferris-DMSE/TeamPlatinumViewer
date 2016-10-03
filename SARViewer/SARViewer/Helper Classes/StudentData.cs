@@ -19,7 +19,7 @@ namespace SARViewer.Models
         [DataMember]
         public List<Student> StudentDirectory { get { return studentDirectory; } set { studentDirectory = value; } }
 
-        public StudentData deserializeFromXML()
+        public List<Student> parseStudents()
         {
             StudentData sd = new StudentData();
             if (!File.Exists(FILEPATH))
@@ -35,7 +35,7 @@ namespace SARViewer.Models
             }
 
 
-            return sd;
+            return sd.StudentDirectory;
         }
     }
 
