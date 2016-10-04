@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.Serialization;
 
-namespace SARViewer.Models
+namespace SARViewer.Models 
 {
-    [DataContract(Namespace = "")]
+    [DataContract(Namespace ="")]
     class StudentData
     {
         private const string FILEPATH = @"..\..\XMLStudentData\studentData.xml";
