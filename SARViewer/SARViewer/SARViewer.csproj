@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helper Classes\RandomCourseGenerator.cs" />
     <Compile Include="Helper Classes\StudentData.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Student.cs" />
