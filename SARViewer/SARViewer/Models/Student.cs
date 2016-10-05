@@ -7,15 +7,35 @@ using System.Runtime.Serialization;
 
 namespace SARViewer.Models
 {
+    /// <summary>
+    /// Represents a Student from XML
+    /// </summary>
     [DataContract (Namespace = "")]
     class Student
     {
+        /// <summary>
+        /// Gets or Sets the student's first name.
+        /// </summary>
         [DataMember(Order = 0)]
         public string FirstName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets the student's last name.
+        /// </summary>
         [DataMember(Order = 1)]
         public string LastName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets the student's ID.
+        /// </summary>
         [DataMember(Order = 2)]
         public int ID { get; set; }
+
+        /// <summary>
+        /// Gets or Sets the student's Courses Registered
+        /// </summary>
+        /// <remarks>Gives access to the List of Courses
+        /// that a student is registered for.</remarks>
         [DataMember(Order = 3)]
         public List<Course> CoursesRegistered { get; set; }
        
