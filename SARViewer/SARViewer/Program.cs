@@ -65,8 +65,10 @@ namespace SARViewer
             {
                 Console.WriteLine("\n\nStudent Info:");
                 Console.WriteLine(student.FirstName + " " + student.LastName + "   ID: " + student.ID);
+                Console.WriteLine("");
+                Console.WriteLine("Student's Course List:");
                 Console.WriteLine("-------------------------");
-                Console.WriteLine("Student Course List:");
+                
                 foreach (Course course in student.CoursesRegistered)  //Lists out student's courses and details
                 {
                     Console.WriteLine("\t" + course.Name + ", Course ID:" + course.CourseNumber);                  
