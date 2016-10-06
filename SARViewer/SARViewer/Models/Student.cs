@@ -38,6 +38,21 @@ namespace SARViewer.Models
         /// that a student is registered for.</remarks>
         [DataMember(Order = 3)]
         public List<Course> CoursesRegistered { get; set; }
-       
+
+        public override string ToString()
+        {
+            string returnString = "";
+            returnString += "\n\nStudent Info:\n" +
+            FirstName + " " + LastName + "   ID: " +
+            ID + "\n\n" + "Student's Course List:\n" +
+            "-------------------------\n";
+            foreach (Course course in CoursesRegistered)
+            {
+                returnString += course.ToString();
+            }
+
+            return returnString; 
+        }
+
     }
 }

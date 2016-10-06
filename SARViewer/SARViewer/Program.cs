@@ -59,8 +59,24 @@ namespace SARViewer
                         where student.FirstName == studentQuery1 || student.LastName == studentQuery2 //Looks for First/Last name values
                         select student;  //Selects all students from student directory with that match the query
 
-            if (query.Count() == 0) Console.WriteLine("No students found under the name " + studentQuery1 + studentQuery2); //Checks if there was a student under the name provided
+            if (query.Count() == 0)
+                Console.WriteLine("No students found under the name " + studentQuery1 + studentQuery2); //Checks if there was a student under the name provided
             
+            if (query.Count() > 1)
+            {
+                Console.WriteLine("Returned more than one student. Please select the " + 
+                    "number of the student whose Student Academic Record you would like to view.");
+
+                int k = 0;
+                foreach (Student s in query)
+                {
+                    Console.WriteLine("{0}: {1}, {2}", k+1, s.LastName, s.FirstName);
+                    k++;
+                }
+
+
+            }
+
             foreach (Student student in query)  //Lists out the matching student's info
             {
                 Console.WriteLine("\n\nStudent Info:");
