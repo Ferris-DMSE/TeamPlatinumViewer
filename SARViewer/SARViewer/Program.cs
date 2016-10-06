@@ -21,17 +21,24 @@ namespace SARViewer
             {
                 char selection;
                  
-                do  
+                while(true)  
                 {
-                    
+                    Console.Clear();//Give initial clear screen since we're in a loop.
                     Console.WriteLine("To search for a student press any key. To exit the application press E"); //Prompts user for input
                     selection = Console.ReadKey().KeyChar; //reads input
                     Console.Clear();                       //Clears console text   
+                    if (selection == 'e' || selection == 'E')
+                    {
+                        return;
+                    }
                     displayQuery(Data);                    //Performs the DisplayQuery Method
+
+                    //Pause to keep display
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadKey();
 
 
                 }
-                while (selection != 'e');  
 
             }
             
@@ -56,17 +63,17 @@ namespace SARViewer
             
             foreach (Student student in query)  //Lists out the matching student's info
             {
-                Console.WriteLine("Student Info:");
+                Console.WriteLine("\n\nStudent Info:");
                 Console.WriteLine(student.FirstName + " " + student.LastName + "   ID: " + student.ID);
-                Console.WriteLine();
+                Console.WriteLine("-------------------------");
                 Console.WriteLine("Student Course List:");
                 foreach (Course course in student.CoursesRegistered)  //Lists out student's courses and details
                 {
-                    Console.WriteLine(course.Name + ", Course ID:" + course.CourseNumber);                  
-                    Console.WriteLine("Semester: " + course.Semester);
-                    Console.WriteLine("Grade: " + course.Grade);
-                    Console.WriteLine(course.Credits + " Credits");
-                    Console.WriteLine("-");
+                    Console.WriteLine("\t" + course.Name + ", Course ID:" + course.CourseNumber);                  
+                    Console.WriteLine("\t" + "Semester: " + course.Semester);
+                    Console.WriteLine("\t" + "Grade: " + course.Grade);
+                    Console.WriteLine("\t" + course.Credits + " Credits");
+                    Console.WriteLine("-------------------------");
                 }
 
             }
