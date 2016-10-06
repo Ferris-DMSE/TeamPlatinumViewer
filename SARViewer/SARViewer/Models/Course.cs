@@ -62,15 +62,27 @@ namespace SARViewer.Models
         [DataMember(Order = 7)]
         public string Grade { get; set; }
 
+        public bool Completed
+        {
+            get
+            {
+                if (Grade == "A" || Grade == "B" || Grade == "C" || Grade == "D" || Grade == "E")
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
+
         public override string ToString()
         {
-            string returnString = "";
-
-            returnString+=
+            string returnString =
             "\t" + Name + ", Course ID:" + CourseNumber + "\n" +
             "\t" + "Semester: " + Semester + "\n" +
             "\t" + "Grade: " + Grade + "\n" +
             "\t" + Credits + " Credits" + "\n" +
+            "\t" + "Course Type: " + CourseType + "\n" + 
+            "\tCompleted: " + Completed + "\n"+ 
             "-------------------------\n";
 
             return returnString;
