@@ -62,5 +62,19 @@ namespace SARViewer.Models
         [DataMember(Order = 7)]
         public string Grade { get; set; }
 
+        public override string ToString()
+        {
+            string returnString = "";
+
+            returnString+=
+            "\t" + Name + ", Course ID:" + CourseNumber + "\n" +
+            "\t" + "Semester: " + Semester + "\n" +
+            "\t" + "Grade: " + Grade + "\n" +
+            "\t" + Credits + " Credits" + "\n" +
+            "-------------------------\n";
+
+            return returnString;
+        }
+
     }
 }
