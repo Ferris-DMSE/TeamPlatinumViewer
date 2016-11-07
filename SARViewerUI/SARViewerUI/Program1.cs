@@ -7,7 +7,7 @@ using SARViewer.Models;
 
 
 static readonly string No_Students_Found_0_1 = "No students found under the name {0} {1}"
-static string "Returned more than one student. Please enter the students unique ID"
+static string Returned_More_Than_One_Student = "Returned more than one student. Please enter the students unique ID"
 
 namespace SARViewer
 {
