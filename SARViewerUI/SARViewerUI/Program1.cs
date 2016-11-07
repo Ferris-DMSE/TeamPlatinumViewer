@@ -5,7 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using SARViewer.Models;
 
-
+static string "To search for a student press any key. To exit the application press E"
+static string "Please enter student's first name"
+static string "Please enter student's last name"
+static string "No students found under the name " + studentQuery1 + " " + studentQuery2"
+static string "Returned more than one student. Please enter the students unique ID"
 
 namespace SARViewer
 {
@@ -24,7 +28,7 @@ namespace SARViewer
                 while(true)  
                 {
                     Console.Clear();//Give initial clear screen since we're in a loop.
-                    Console.WriteLine("To search for a student press any key. To exit the application press E"); //Prompts user for input
+                    //Console.WriteLine("To search for a student press any key. To exit the application press E"); //Prompts user for input
                     selection = Console.ReadKey().KeyChar; //reads input
                     Console.Clear();                       //Clears console text   
                     if (selection == 'e' || selection == 'E')
@@ -47,11 +51,11 @@ namespace SARViewer
 
         private static void displayQuery(StudentData data) //Method that will prompt user for student info
         {
-            Console.WriteLine("Please enter student's first name"); 
+            //Console.WriteLine("Please enter student's first name"); 
             string studentQuery1 = Console.ReadLine();              //Reads First name input
             studentQuery1 = studentQuery1.ToUpper();                //Puts First name input in all caps so it matches XML file
 
-            Console.WriteLine("Please enter student's last name");
+            //Console.WriteLine("Please enter student's last name");
             string studentQuery2 = Console.ReadLine();              //Reads Last name input
             studentQuery2 = studentQuery2.ToUpper();                //Puts Last name input in all caps so it matches XML file
 
@@ -61,7 +65,7 @@ namespace SARViewer
 
             if (query.Count() == 0)
 
-                Console.WriteLine("No students found under the name " + studentQuery1 + " " + studentQuery2); //Checks if there was a student under the name provided
+               // Console.WriteLine("No students found under the name " + studentQuery1 + " " + studentQuery2); //Checks if there was a student under the name provided
             if (query.Count() == 1)
             {
                 foreach (Student st in query)
@@ -72,7 +76,7 @@ namespace SARViewer
 
             if (query.Count() > 1)
             {
-                Console.WriteLine("Returned more than one student. Please enter the students unique ID");
+                //Console.WriteLine("Returned more than one student. Please enter the students unique ID");
                 int idInput;
                 int.TryParse(Console.ReadLine(), out idInput);
 
