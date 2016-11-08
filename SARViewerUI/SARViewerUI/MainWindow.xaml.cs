@@ -25,7 +25,6 @@ namespace SARViewerUI
 
         public MainWindow()
         {
-
             InitializeComponent();
 
             studentData = StudentData.DeserializeFromXML(); //Gets data's value from deserializing the XML file
@@ -39,18 +38,35 @@ namespace SARViewerUI
 
             }
         }
-        public void Button_Click(object sender, RoutedEventArgs e)
+
+        private void tbxStudentID_KeyDownHandler(object sender, KeyEventArgs e)
+        {
+            
+            if (e.Key == Key.Return)
+            {
+                DisplayResults(true);
+
+            }
+        }
+
+        public void btnSearch_Click(object sender, RoutedEventArgs e)
         {
             DisplayResults();
         }
-        public void DisplayResults()
+
+        public void btnClear_Click(object sender, RoutedEventArgs e)
         {
-            List<Student> studentResults = SearchStudents(tbxFName.Text, tbxLName.Text, tbxStudentID.Text);
+            ClearScreen();
+        }
+
+        public void DisplayResults(bool useStudentID = false)
+        {
+            List<Student> studentResults = useStudentID ? SearchStudents(tbxStudentID.Text) :SearchStudents(tbxFName.Text, tbxLName.Text, tbxStudentID.Text);
             String msg = ValidateSearchResults(studentResults);
             if (!String.IsNullOrEmpty(msg))
             {
                 MessageBox.Show(msg, "SARViewerUI");
-                grdCourses.Items.Clear();
+                ClearScreen();
                 return;
             }
             else
@@ -61,23 +77,42 @@ namespace SARViewerUI
                 tbxFName.Text = s.FirstName;
                 tbxLName.Text = s.LastName;
 
+                IEnumerable<Course> completedCourses = s.CoursesRegistered.Where(c => c.Grade.ToUpper() != "I" && c.Grade.ToUpper() != "W");
                 int coursesTaken = s.CoursesRegistered.Count;
                 int coursesWithdrawn = s.CoursesRegistered.Count(c => c.Grade.ToUpper() == "W");
                 int coursesIncompleted = s.CoursesRegistered.Count(c => c.Grade.ToUpper() == "I");
                 int coursesCompleted = coursesTaken - coursesIncompleted - coursesWithdrawn;
+                
+                int CoreCompleted = completedCourses.Count(c => c.CourseType.ToUpper().Contains("CORE"));
+                int GenEdCompleted = completedCourses.Count(c => c.CourseType.ToUpper().Contains("GEN"));
+                int ElectCompleted = completedCourses.Count(c => c.CourseType.ToUpper().Contains("ELECT"));
 
-
-                tbxCoursesTaken.Text = coursesTaken.ToString();
-                tbxCoursesWithdrawn.Text = GetPercentage(coursesWithdrawn, coursesTaken).ToString();
-                tbxCoursesIncompleted.Text = GetPercentage(coursesIncompleted, coursesTaken).ToString();
-                tbxCoursesCompleted.Text = GetPercentage(coursesCompleted, coursesTaken).ToString();
+                tbxCoursesCompleted.Text = coursesCompleted.ToString();
+                tbxCoreCompleted.Text = GetPercentage(CoreCompleted, coursesTaken).ToString();
+                tbxGenEdCompleted.Text = GetPercentage(GenEdCompleted, coursesTaken).ToString();
+                tbxElectiveCompleted.Text = GetPercentage(ElectCompleted, coursesTaken).ToString();
             }
+        }
+
+        public void ClearScreen()
+        {
+            tbxFName.Text = String.Empty;
+            tbxLName.Text = String.Empty;
+            tbxStudentID.Text = String.Empty;
+
+            grdCourses.DataContext = null;
+            grdCourses.Items.Refresh();
+            tbxCoreCompleted.Text = String.Empty;
+            tbxGenEdCompleted.Text = String.Empty;
+            tbxElectiveCompleted.Text = String.Empty;
+            tbxCoursesCompleted.Text = String.Empty;
         }
 
         public decimal GetPercentage(int part, int whole)
         {
             return Decimal.Round((part / Convert.ToDecimal(whole) * 100), 2);
         }
+
         public string ValidateSearchResults(List<Student> students)
         {
             if (studentData == null) return "Data file could not be found or loaded.";
@@ -85,6 +120,7 @@ namespace SARViewerUI
             else if (students.Count > 1) return SARViewer.Strings.Returned_More_Than_One_Student;
             return String.Empty;
         }
+
         public List<Student> SearchStudents(string FName, string LName, string studentID = "")
         {
             if (studentData == null) return null;
@@ -111,30 +147,26 @@ namespace SARViewerUI
             if (!String.IsNullOrWhiteSpace(studentID))
             {
                 query = from student in query
-                        where student.ID.ToString().Contains(studentID)
+                        where student.ID.ToString().Equals(studentID)
                         select student;
             }
 
             return query.ToList();
         }
 
+        public List<Student> SearchStudents(string studentID)
+        {
+            if (studentData == null) return null;
+
+            IEnumerable<Student> query = from student in studentData.StudentDirectory
+                                         where student.ID.ToString().Equals(studentID)
+                                         select student;
+            return query.ToList();
+        }
+
         private void Window_Initialized(object sender, EventArgs e)
         {
             StudentData Data = StudentData.DeserializeFromXML(); //Gets data's value from deserializing the XML file
-        }
-
-        private void SetControlAsReadOnly(TextBox textBox)
-        {
-            textBox.Background = Brushes.LightGray;
-            textBox.IsReadOnly = true;
-            textBox.BorderThickness = new Thickness(0d);
-        }
-
-        private void SetControlAsEditable(TextBox textBox)
-        {
-            textBox.Background = Brushes.White;
-            textBox.IsReadOnly = false;
-            textBox.BorderThickness = new Thickness(1d);
         }
     }
 }
