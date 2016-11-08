@@ -19,14 +19,14 @@
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
         <Label x:Name="lblFName" Content="First name:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
-        <TextBox x:Name="tbxFName" HorizontalAlignment="Left" Height="23" Margin="82,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <TextBox x:Name="tbxFName" HorizontalAlignment="Left" Height="23" Margin="82,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" KeyDown="KeyDownHandler"/>
         <Label x:Name="lblLName" Content="Last name:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="26" Width="66" Grid.Column="1"/>
-        <TextBox x:Name="tbxLName" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="81,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <TextBox x:Name="tbxLName" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="81,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" KeyDown="KeyDownHandler"/>
         <Label x:Name="lblStudentID" Content="ID Number:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="86,13,0,0" Background="LightGray" BorderThickness="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" IsReadOnly="True"/>
-        <Button x:Name="btnSearch" Content="Search" Grid.Column="3" HorizontalAlignment="Left" Margin="28,15,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="tbxStudentID" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="86,13,0,0" BorderThickness="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" KeyDown="KeyDownHandler"/>
+        <Button x:Name="btnSearch" Content="Search" Grid.Column="3" HorizontalAlignment="Left" Margin="28,15,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <GroupBox x:Name="gbxCourses" Header="Student's Courses" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="4" Height="440" Grid.RowSpan="1" Width="770">
-            <DataGrid x:Name="grdCourses" ItemsSource="{Binding}" BorderThickness="0" AlternatingRowBackground="LightBlue" AlternationCount="2">
+            <DataGrid x:Name="grdCourses" AutoGenerateColumns="false" CanUserAddRows="false" CanUserDeleteRows="false" ItemsSource="{Binding}" BorderThickness="0" AlternatingRowBackground="LightBlue" AlternationCount="2">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="CourseID" IsReadOnly="True" Binding="{Binding CourseNumber}"/>
                     <DataGridTextColumn Header="Course Name" IsReadOnly="True" Binding="{Binding Name}" Width="*"/>
