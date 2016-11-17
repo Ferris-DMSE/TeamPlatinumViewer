@@ -32,3 +32,12 @@ F:\Repositories\TeamPlatinumViewer\SARViewer\SARViewer\bin\Debug\SARViewer.pdb
 C:\Users\jonej134\Documents\GitHub\TeamPlatinumViewer\SARViewer\SARViewer\bin\Debug\SARViewer.exe
 C:\Users\jonej134\Documents\GitHub\TeamPlatinumViewer\SARViewer\SARViewer\bin\Debug\SARViewer.pdb
 C:\Users\jonej134\Documents\GitHub\TeamPlatinumViewer\SARViewer\SARViewer\obj\Debug\SARViewer.csprojResolveAssemblyReference.cache
+C:\Users\feathea1\Source\Repos\TeamPlatinumViewer\SARViewer\SARViewer\bin\Debug\SARViewer.exe.config
+C:\Users\feathea1\Source\Repos\TeamPlatinumViewer\SARViewer\SARViewer\obj\Debug\SARViewer.exe
+C:\Users\feathea1\Source\Repos\TeamPlatinumViewer\SARViewer\SARViewer\obj\Debug\SARViewer.pdb
+C:\Users\feathea1\Source\Repos\TeamPlatinumViewer\SARViewer\SARViewer\bin\Debug\SARViewer.exe
+C:\Users\feathea1\Source\Repos\TeamPlatinumViewer\SARViewer\SARViewer\bin\Debug\SARViewer.pdb
+C:\Users\feathea1\Source\Repos\TeamPlatinumViewer\SARViewer\SARViewer\obj\Debug\SARViewer.csprojResolveAssemblyReference.cache
+C:\Users\Ryan\Source\Repos\TeamPlatinumViewer\SARViewer\SARViewer\bin\Debug\SARViewer.exe.config
+C:\Users\Ryan\Source\Repos\TeamPlatinumViewer\SARViewer\SARViewer\obj\Debug\SARViewer.exe
+C:\Users\Ryan\Source\Repos\TeamPlatinumViewer\SARViewer\SARViewer\obj\Debug\SARViewer.pdb
