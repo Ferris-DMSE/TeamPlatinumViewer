@@ -49,6 +49,7 @@
                 <TextBox x:Name="tbxElectiveCompleted" Width="50" Margin="0,5" Background="LightGray" BorderThickness="0" IsReadOnly="True"/>
                 <Label x:Name="lblCoursesCompleted" Margin="8,0,0,0">Courses Completed:</Label>
                 <TextBox x:Name="tbxCoursesCompleted" Width="50" Margin="0,5" Background="LightGray" BorderThickness="0" IsReadOnly="True"/>
+                <Button x:Name="btnReportGen" Content="Report Generator" Margin="20,0,0,0"  Click="btnReportGen_Click"/>
             </StackPanel>
         </GroupBox>
     </Grid>

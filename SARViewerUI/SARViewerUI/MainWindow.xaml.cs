@@ -168,6 +168,11 @@ namespace SARViewerUI
         {
             StudentData Data = StudentData.DeserializeFromXML(); //Gets data's value from deserializing the XML file
         }
+
+        private void btnReportGen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
 
