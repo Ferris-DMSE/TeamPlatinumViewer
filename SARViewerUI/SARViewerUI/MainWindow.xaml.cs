@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SARViewer.Models;
+using SARViewer;
+using PdfRpt.Core.Contracts;
+using PdfRpt.FluentInterface;
 
 namespace SARViewerUI
 {
@@ -171,7 +174,8 @@ namespace SARViewerUI
 
         private void btnReportGen_Click(object sender, RoutedEventArgs e)
         {
-
+            SARViewer.PDFCreator pdfCreator = new SARViewer.PDFCreator();
+            IPdfReportData data = pdfCreator.CreatePdfReport(studentData.StudentDirectory);
         }
     }
 }

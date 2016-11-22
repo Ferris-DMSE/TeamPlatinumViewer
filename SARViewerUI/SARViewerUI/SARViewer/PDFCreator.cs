@@ -11,7 +11,7 @@ namespace SARViewerUI.SARViewer
 {
     public class PDFCreator
     {
-        public static IPdfReportData CreatePdfReport(List<Student> studentList)
+        public IPdfReportData CreatePdfReport(List<Student> studentList)
         {
             return new PdfReport().DocumentPreferences(doc =>
             {
@@ -36,15 +36,6 @@ namespace SARViewerUI.SARViewer
             {
                 footer.DefaultFooter(DateTime.Now.ToString("MM/dd/yyyy"));
             })
-            .PagesHeader(header =>
-            {
-                header.DefaultHeader(defaultHeader =>
-                {
-                    defaultHeader.RunDirection(PdfRunDirection.LeftToRight);
-                    defaultHeader.ImagePath(AppPath.ApplicationPath + "\\Images\\01.png");
-                    defaultHeader.Message("Our new rpt.");
-                });
-            })
             .MainTableTemplate(template =>
             {
                 template.BasicTemplate(BasicTemplate.ClassicTemplate);
@@ -52,7 +43,6 @@ namespace SARViewerUI.SARViewer
             .MainTablePreferences(table =>
             {
                 table.ColumnsWidthsType(TableColumnWidthType.Relative);
-                table.NumberOfDataRowsPerPage(5);
             })
             .MainTableDataSource(dataSource =>
             {
@@ -70,7 +60,7 @@ namespace SARViewerUI.SARViewer
                 export.ToCsv();
                 export.ToXml();
             })
-            .Generate(data => data.AsPdfFile(AppPath.ApplicationPath + "\\RptIListSample.pdf"));
+            .Generate(data => data.AsPdfFile(AppPath.ApplicationPath + "\\Resources\\RptIListSample.pdf"));
         }
     }
 }
