@@ -54,6 +54,70 @@ namespace SARViewerUI.SARViewer
                 summarySettings.PreviousPageSummarySettings("Previous Page Summary");
                 summarySettings.PageSummarySettings("Page Summary");
             })
+            .MainTableColumns(columns =>
+            {
+                columns.AddColumn(column =>
+                {
+                    column.PropertyName("rowNo");
+                    column.IsRowNumber(true);
+                    column.CellsHorizontalAlignment(HorizontalAlignment.Center);
+                    column.IsVisible(true);
+                    column.Order(0);
+                    column.Width(1);
+                    column.HeaderCell("#");
+                });
+
+                columns.AddColumn(column =>
+                {
+                    column.PropertyName<Student>(x => x.FirstName);
+                    column.CellsHorizontalAlignment(HorizontalAlignment.Center);
+                    column.IsVisible(true);
+                    column.Order(1);
+                    column.Width(2);
+                    column.HeaderCell("First Name");
+                });
+
+                columns.AddColumn(column =>
+                {
+                    column.PropertyName<Student>(x => x.LastName);
+                    column.CellsHorizontalAlignment(HorizontalAlignment.Center);
+                    column.IsVisible(true);
+                    column.Order(2);
+                    column.Width(3);
+                    column.HeaderCell("Last Name");
+                });
+
+                columns.AddColumn(column =>
+                {
+                    column.PropertyName<Student>(x => x.ID);
+                    column.CellsHorizontalAlignment(HorizontalAlignment.Center);
+                    column.IsVisible(true);
+                    column.Order(3);
+                    column.Width(3);
+                    column.HeaderCell("Student ID");
+                });
+
+                //columns.AddColumn(column =>
+                //{
+                //    column.PropertyName<User>(x => x.Balance);
+                //    column.CellsHorizontalAlignment(HorizontalAlignment.Center);
+                //    column.IsVisible(true);
+                //    column.Order(4);
+                //    column.Width(2);
+                //    column.HeaderCell("Balance");
+                //    column.ColumnItemsTemplate(template =>
+                //    {
+                //        template.TextBlock();
+                //        template.DisplayFormatFormula(obj => obj == null ? string.Empty : string.Format("{0:n0}", obj));
+                //    });
+                //    column.AggregateFunction(aggregateFunction =>
+                //    {
+                //        aggregateFunction.NumericAggregateFunction(AggregateFunction.Sum);
+                //        aggregateFunction.DisplayFormatFormula(obj => obj == null ? string.Empty : string.Format("{0:n0}", obj));
+                //    });
+                //});
+
+            })
             .Export(export =>
             {
                 export.ToExcel();
