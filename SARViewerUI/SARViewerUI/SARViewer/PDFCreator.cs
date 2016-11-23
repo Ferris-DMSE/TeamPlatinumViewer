@@ -96,27 +96,15 @@ namespace SARViewerUI.SARViewer
                     column.Width(3);
                     column.HeaderCell("Student ID");
                 });
-
-                //columns.AddColumn(column =>
-                //{
-                //    column.PropertyName<User>(x => x.Balance);
-                //    column.CellsHorizontalAlignment(HorizontalAlignment.Center);
-                //    column.IsVisible(true);
-                //    column.Order(4);
-                //    column.Width(2);
-                //    column.HeaderCell("Balance");
-                //    column.ColumnItemsTemplate(template =>
-                //    {
-                //        template.TextBlock();
-                //        template.DisplayFormatFormula(obj => obj == null ? string.Empty : string.Format("{0:n0}", obj));
-                //    });
-                //    column.AggregateFunction(aggregateFunction =>
-                //    {
-                //        aggregateFunction.NumericAggregateFunction(AggregateFunction.Sum);
-                //        aggregateFunction.DisplayFormatFormula(obj => obj == null ? string.Empty : string.Format("{0:n0}", obj));
-                //    });
-                //});
-
+                columns.AddColumn(column =>
+                {
+                    column.PropertyName<Student>(x => x.DegreeCompletedPercentage);
+                    column.CellsHorizontalAlignment(HorizontalAlignment.Center);
+                    column.IsVisible(true);
+                    column.Order(4);
+                    column.Width(3);
+                    column.HeaderCell("Degree Completion");
+                });
             })
             .Export(export =>
             {
