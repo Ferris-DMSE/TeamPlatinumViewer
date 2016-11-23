@@ -39,6 +39,35 @@ namespace SARViewer.Models
         [DataMember(Order = 3)]
         public List<Course> CoursesRegistered { get; set; }
 
+        public string DegreeCompletedPercentage
+        {
+            get
+            {
+                int genEdCnt = 0;
+                int electiveCnt = 0;
+                int coreCnt = 0;
+
+                foreach (Course course in CoursesRegistered)
+                {
+                    switch (course.CourseType)
+                    {
+                        case "General Education":
+                            genEdCnt++;
+                            break;
+                        case "Elective":
+                            electiveCnt++;
+                            break;
+                        case "Core":
+                            coreCnt++;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                return Math.Round(((double)(coreCnt + genEdCnt + electiveCnt) / 42) * 100, 3).ToString() + "%";
+            }
+        }
+
         public override string ToString()
         {
             string returnString = "";
